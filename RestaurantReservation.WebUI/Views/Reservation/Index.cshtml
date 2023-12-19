@@ -1,0 +1,55 @@
+﻿@model RestaurantReservation.WebUI.Models.ReservationModel
+@{
+	Layout = "_Layout";
+}
+<h1>Rezervasyon Oluştur</h1>
+<form asp-action="Index" asp-controller="Reservation">
+	@if (Model != null && !string.IsNullOrWhiteSpace(Model.ResultMessage))
+	{
+		string divClass = Model.Result ? "alert alert-success" : "alert alert-danger";
+		<div class="@divClass" role="alert">
+			@Model.ResultMessage
+		</div>
+	}
+	<div class="mb-3">
+		<label asp-for="Email" class="form-label">E-posta</label>
+		<input type="email" class="form-control" asp-for="Email" aria-describedby="emailHelp">
+		<span asp-validation-for="Email" class="text-warning"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="CustomerName" class="form-label">Adınız ve Soyadınız</label>
+		<input type="text" class="form-control" asp-for="CustomerName">
+		<span asp-validation-for="CustomerName" class="text-warning"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="ReservationDate" class="form-label">Rezervasyon Tarihi</label>
+		<input type="text" class="form-control" asp-for="ReservationDate" aria-describedby="DateHelp" placeholder="dd/MM/YYYY">
+		<span asp-validation-for="ReservationDate" class="text-warning"></span>
+	</div>
+	<div class="mb-3">
+		<label asp-for="NumberOfGuests" class="form-label">Gelecek Kişi Sayısı</label>
+		<input type="number" class="form-control" asp-for="NumberOfGuests">
+		<span asp-validation-for="NumberOfGuests" class="text-warning"></span>
+	</div>
+	<button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+@section Scripts {
+	<!-- Include Date Range Picker -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			var date_input = $('input[name="ReservationDate"]');
+			var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+			date_input.datepicker({
+				format: 'dd/mm/yyyy',
+				container: container,
+				todayHighlight: true,
+				autoclose: true,
+			})
+		})
+	</script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}
