@@ -10,7 +10,6 @@ namespace RestaurantReservation.DataAccess.Concrete.EntityFramework
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer(ConnStringHelper.GetConnectionStr());
-			optionsBuilder.UseInMemoryDatabase(databaseName: "TestDatabase");
 		}
 
 		public virtual DbSet<Tables> Tables { get; set; }
