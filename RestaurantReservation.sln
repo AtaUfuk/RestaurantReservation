@@ -17,6 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantReservation.Commo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantReservation.UnitTests", "RestaurantReservation.UnitTests\RestaurantReservation.UnitTests.csproj", "{04D27160-4056-4E21-8401-51BD7AE771C7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataBaseScript", "DataBaseScript", "{CF036644-3DA6-44F8-BA84-FB3B2A28DD17}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\Vegeta\Documents\restaurant_db_script.sql = C:\Users\Vegeta\Documents\restaurant_db_script.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
